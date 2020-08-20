@@ -38,10 +38,6 @@ body {
     padding: 0;
 }
 
-h3{
-    font-family: Roboto-Light, sans-serif;
-
-}
 main {
     animation-duration: 1s;
     animation-name: fade-in;
@@ -179,6 +175,7 @@ main {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     justify-content: center;
+    padding: 2vh 5vw 2vh 5vw;
     row-gap: 5vh;
 }
 
@@ -210,3 +207,9 @@ main {
     #top-div {
         padding: 0 15vw 0 15vw;
     }
+
+    #links-container {
+        padding: 2vh 15vw 2vh 15vw;
+    }
+
+}
