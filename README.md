@@ -11,3 +11,6 @@ A custom homepage made for removing the burden of logging into your etlab dashbo
 ## Note
 - Planning to add more lists as the classes progress.
 - :star: this repo if you hate these online classes :zap:
+
+## Credits
+ <a href="https://pedro-pablo.github..com/minimal-startpage-template/">:zap:</a>
