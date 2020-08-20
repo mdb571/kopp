@@ -5,6 +5,9 @@ from flask import Flask, render_template, request,make_response,jsonify,url_for
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return('Please specify your admission number in the url')
 @app.route('/<username>')
 def get_attendance_meet_url(username):
 
