@@ -36,7 +36,7 @@
             </form>
         </div>
         <div id="links-container">
-            <section class="link-section" style="width: max-content;">
+            <section class="link-section">
                 <h2 class="link-section-title red" align="center">Essentials</h2>
                 <hr />
                 <ul class="link-list">
@@ -47,7 +47,7 @@
                     <li class="link-list-item"><a class="link" add target="_blank" href="https://linkedin.com">LinkedIn</a></li>
                 </ul>
             </section>
-            <section class="link-section" style="width: max-content;">
+            <section class="link-section">
                 <h2 class="link-section-title green" align="center">Meeting Links</h2>
                 <hr />
                 <ul class="link-list">
@@ -56,12 +56,21 @@
          			{% endfor %}
                 </ul>
             </section>
-            <section class="link-section" style="width: max-content;">
+            <section class="link-section">
                 <h2 class="link-section-title purple" align="center">Attendance</h2>
                 <hr />
                 <ul class="link-list">
                 	{% for k,v in attendance.items() %}
-                    	<li class="link-list-item"><a class="link" href="#">{{k}}:{{v}}</a></li>
+                    	<li class="link-list-item"><a class="link" href="#">{{k}} : {{v}}</a></li>
+                	{%endfor%}
+                </ul>
+            </section>
+            <section class="link-section">
+                <h2 class="link-section-title blue" align="center">Assignments</h2>
+                <hr />
+                <ul class="link-list">
+                	{% for k,v in pending.items() %}
+                    	<li class="link-list-item"><a class="link" href={{v}}>{{k}}</a></li>
                 	{%endfor%}
                 </ul>
             </section>

@@ -41,6 +41,8 @@ def get_attendance_meet_url(username):
             sub_name = grid_data.find(text=re.compile(sub_code+'\s\-\s.+'))
             if sub_name != None:
                 sub_name=sub_name.replace('									','')
+                shortcode=sub_name.split('-')[-1]
+                sub_name=sub_name.split('-')[0]+"".join(e[0] for e in shortcode.split())
             else:
                 sub_name=sub_code
             perc = tag.find_all('td', {'class': 'span2'})[i].getText().strip()
@@ -60,14 +62,26 @@ def get_attendance_meet_url(username):
             sub_name=name.getText().replace('						','')
             sub_name=sub_name.replace('\n\t','')
             if sub_name!='\nVideo Link\n':
+                if "Semester" not in sub_name:
+                    sub_name="".join(e[0] for e in sub_name.split())
                 subjects.append(sub_name)
         for link in links:
             gmeet=link['href']
             link_dict[subjects[0]]=gmeet  
             subjects.remove(subjects[0])
+    assignment_url='https://tkmce.etlab.in/student/assignments'
+    assign_data=BeautifulSoup(sess.get(assignment_url).content,'html.parser')
+    assign_table=assign_data.find('table',{'class':'items table'})
+    subtag=assign_table.find_all('tr')
+    pending={}
+    for tag in subtag:
+        if tag.find('td',text='NOT SUBMITTED'):
+            _sub_name=tag.find('td').getText()
+            _shortcode=_sub_name.split('-')[-1]
+            _sub_name=_sub_name.split('-')[0]+"".join(e[0] for e in _shortcode.split())
+            pending[_sub_name]='https://tkmce.etlab.in/student'+tag.find('a')['href']
 
-    print(link_dict)
-    return(render_template("index.html",attendance=attendance,links=link_dict,name=user_name,batch=batch))
+    return(render_template("index.html",attendance=attendance,links=link_dict,name=user_name,batch=batch,pending=pending))
 
 @app.errorhandler(404)
 def not_found(error):
