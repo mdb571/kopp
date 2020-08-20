@@ -175,6 +175,34 @@ main {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     justify-content: center;
-    padding: 2vh 5vw 2vh 5vw;
-    row-gap: 5vh;
+    `    row-gap: 5vh;
 }
+
+/* Media Queries */
+@media only screen and (min-width: 600px) {
+
+    #links-container {
+        column-gap: 3vw;
+        grid-column-gap: 3vw;
+        grid-row-gap: 5vh;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 5vh;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+    
+    #links-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+    #top-div {
+        padding: 0 15vw 0 15vw;
+    }
