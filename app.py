@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import re
-from flask import Flask, render_template, request,make_response,jsonify
+from flask import Flask, render_template, request,make_response,jsonify,url_for
 
 app = Flask(__name__)
 
