@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import re
-from flask import Flask, jsonify, request
+from flask import Flask, render_template, request,make_response
 
 app = Flask(__name__)
 
@@ -22,7 +22,7 @@ def get_attendance_meet_url(username):
     grid_url='https://tkmce.etlab.in/ktuacademics/student/attendance'
     data = BeautifulSoup(sess.get(attendance_url).content, 'html.parser')
     grid_data=BeautifulSoup(sess.get(grid_url).content, 'html.parser')
-    user_name = (data.find('span',{'class':'text'}).getText().strip())
+    # user_name = (data.find('span',{'class':'text'}).getText().strip())
         
     atten_table = data.find_all('table', {'class': 'items table table-striped table-bordered'})
     attendance={}
@@ -60,7 +60,7 @@ def get_attendance_meet_url(username):
             subjects.remove(subjects[0])
 
     print(link_dict)
-    return(jsonify({'status':'OK','Name':user_name,'attendance':attendance,'meet_urls':link_dict}))
+    return(render_template("index.html",attendance=attendance,links=link_dict))
 
 @app.errorhandler(404)
 def not_found(error):
