@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import re
-from flask import Flask, render_template, request,make_response
+from flask import Flask, render_template, request,make_response,jsonify
 
 app = Flask(__name__)
 
@@ -18,15 +18,19 @@ def get_attendance_meet_url(username):
 
     sess = requests.session()
     post = sess.post(url=url, data=payload)
+    profile='https://tkmce.etlab.in/student/profile'
     attendance_url = 'https://tkmce.etlab.in/ktuacademics/student/viewattendancesubject/22'
     grid_url='https://tkmce.etlab.in/ktuacademics/student/attendance'
     data = BeautifulSoup(sess.get(attendance_url).content, 'html.parser')
     grid_data=BeautifulSoup(sess.get(grid_url).content, 'html.parser')
     # user_name = (data.find('span',{'class':'text'}).getText().strip())
-        
+    userdata=BeautifulSoup(sess.get(profile).content,'html.parser')
     atten_table = data.find_all('table', {'class': 'items table table-striped table-bordered'})
     attendance={}
-
+    batch_tag=userdata.find('span',{'style':'color:green;font-weight:bold;'})
+    user_name=userdata.find('table',{'class':'detail-view table'})
+    batch=batch_tag.find('a').getText()
+    user_name=user_name.find('td').getText()
     for tag in atten_table:
         num=tag.find_all('th',{'class':'span2'})
         for i in range(len(num)-2):
@@ -60,7 +64,7 @@ def get_attendance_meet_url(username):
             subjects.remove(subjects[0])
 
     print(link_dict)
-    return(render_template("index.html",attendance=attendance,links=link_dict))
+    return(render_template("index.html",attendance=attendance,links=link_dict,name=user_name,batch=batch))
 
 @app.errorhandler(404)
 def not_found(error):

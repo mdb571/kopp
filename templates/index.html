@@ -17,6 +17,9 @@
 
 <body>
     <main>
+    	<h3 align="right">Welcome {{name}}</h3>
+    	<h3 align="right">{{batch}}</h3>
+
         <div id="top-div">
             <div id="clock-div">
                 <h1 id="clock">
@@ -33,26 +36,15 @@
             </form>
         </div>
         <div id="links-container">
-            <section class="link-section">
+            <section class="link-section" style="width: max-content;">
                 <h2 class="link-section-title red">Essentials</h2>
                 <hr />
                 <ul class="link-list">
-                    <li class="link-list-item"><a class="link" href="https://web.whatsapp.com/">Whatsapp</a></li>
-                    <li class="link-list-item"><a class="link" href="https://youtube.com">Youtube</a></li>
-                    <li class="link-list-item"><a class="link" href="https://mail.google.com">Gmail</a></li>
-                    <li class="link-list-item"><a class="link" href="https://github.com">Github</a></li>
-                    <li class="link-list-item"><a class="link" href="https://linkedin.com">LinkedIn</a></li>
-                </ul>
-            </section>
-            <section class="link-section">
-                <h2 class="link-section-title blue">Etlab</h2>
-                <hr />
-                <ul class="link-list">
-                    <li class="link-list-item"><a class="link" href="#">Website 1</a></li>
-                    <li class="link-list-item"><a class="link" href="#">Website 2</a></li>
-                    <li class="link-list-item"><a class="link" href="#">Website 3</a></li>
-                    <li class="link-list-item"><a class="link" href="#">Website 4</a></li>
-                    <li class="link-list-item"><a class="link" href="#">Website 5</a></li>
+                    <li class="link-list-item"><a class="link" add target="_blank" href="https://web.whatsapp.com/">Whatsapp</a></li>
+                    <li class="link-list-item"><a class="link" add target="_blank" href="https://youtube.com">Youtube</a></li>
+                    <li class="link-list-item"><a class="link" add target="_blank" href="https://mail.google.com">Gmail</a></li>
+                    <li class="link-list-item"><a class="link" add target="_blank" href="https://github.com">Github</a></li>
+                    <li class="link-list-item"><a class="link" add target="_blank" href="https://linkedin.com">LinkedIn</a></li>
                 </ul>
             </section>
             <section class="link-section" style="width: max-content;">
@@ -60,7 +52,7 @@
                 <hr />
                 <ul class="link-list">
                 	{% for k,v in links.items() %}
-                    	<li class="link-list-item"><a class="link" href={{ v }}>{{ k }}</a></li>
+                    	<li class="link-list-item"><a class="link" add target="_blank" href={{ v }}>{{ k }}</a></li>
          			{% endfor %}
                 </ul>
             </section>

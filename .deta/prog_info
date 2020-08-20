@@ -1,0 +1,1 @@
+{"id":"25463f18-0b90-4f57-a666-58770e7fbfd5","space":672,"runtime":"python3.7","name":"etlab_scraper","path":"xhap9x","project":"a0llxxt1","account":"270921617325","region":"ap-southeast-1","deps":["flask","requests","bs4","deta"],"envs":null,"public":true,"log_level":"debug","cron":"","reload_deps":false}

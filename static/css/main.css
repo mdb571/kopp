@@ -38,6 +38,10 @@ body {
     padding: 0;
 }
 
+h3{
+    font-family: Roboto-Light, sans-serif;
+
+}
 main {
     animation-duration: 1s;
     animation-name: fade-in;
