@@ -13,4 +13,4 @@ A custom homepage made for removing the burden of logging into your etlab dashbo
 - :star: this repo if you hate these online classes :zap:
 
 ## Credits
- <a href="https://pedro-pablo.github..com/minimal-startpage-template/">:zap:</a>
+ <a href="https://pedro-pablo.github.io/minimal-startpage-template/">:zap:</a>
