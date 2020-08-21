@@ -59,7 +59,7 @@ def get_attendance_meet_url(username):
         link_name=tag.find_all('td',{'class':'span5'})
         links=tag.find_all('a')
         for name in link_name:
-            sub_name=name.getText().replace('						','')
+            sub_name=name.getText().replace('						','').title()
             sub_name=sub_name.replace('\n\t','')
             if sub_name!='\nVideo Link\n':
                 if "Semester" not in sub_name:
@@ -77,7 +77,7 @@ def get_attendance_meet_url(username):
     for tag in subtag:
         if tag.find('td',text='NOT SUBMITTED'):
             _sub_name=tag.find('td').getText()
-            _shortcode=_sub_name.split('-')[-1]
+            _shortcode=_sub_name.split('-')[-1].title()
             _sub_name=_sub_name.split('-')[0]+"".join(e[0] for e in _shortcode.split())
             pending[_sub_name]='https://tkmce.etlab.in'+tag.find('a')['href']
 
