@@ -1,6 +1,6 @@
 # PeverPage :rocket:
 
-A custom homepage made for removing the burden of logging into your etlab dashboard.This homepage list your google meet links and your attendance for each subjects.Make this as your hompage on your so taht you don't need to log in each time beacause session timeouts.Now you grab your online class links right from your browser homepage.
+A custom homepage made for removing the burden of logging into your etlab dashboard.This homepage list your google meet links,attendance and unsubmitted assignments for each subjects.Make this as your hompage on your so that you don't need to log in each time because of session timeouts.Now you grab your online class links right from your browser homepage.
 
 ## Usage
 
@@ -13,4 +13,4 @@ A custom homepage made for removing the burden of logging into your etlab dashbo
 - :star: this repo if you hate these online classes :zap:
 
 ## Credits
- <a href="https://pedro-pablo.github.io/minimal-startpage-template/">:zap:</a>
+ <a href="https://pedro-pablo.github.io/minimal-startpage-template/">template</a>
