@@ -79,7 +79,7 @@ def get_attendance_meet_url(username):
             _sub_name=tag.find('td').getText()
             _shortcode=_sub_name.split('-')[-1]
             _sub_name=_sub_name.split('-')[0]+"".join(e[0] for e in _shortcode.split())
-            pending[_sub_name]='https://tkmce.etlab.in/'+tag.find('a')['href']
+            pending[_sub_name]='https://tkmce.etlab.in'+tag.find('a')['href']
 
     return(render_template("index.html",attendance=attendance,links=link_dict,name=user_name,batch=batch,pending=pending))
 
